@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* ─── Typography improvements ─────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+p, li {
+  line-height: 1.75;
+}
+
+/* ─── Smooth theme switch (class applied briefly during toggle) ── */
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow, opacity !important;
+  transition-duration: 350ms !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* ─── Light mode overrides ──────────────────────────────
+   Tailwind v4 puts all utilities inside @layer utilities.
+   Non-layered CSS has higher specificity — no !important needed.
+───────────────────────────────────────────────────────── */
+
+html.light-mode body {
+  background-color: #f0f9ff;
+  color: #0f172a;
+}
+
+/* Scrollbar */
+html.light-mode ::-webkit-scrollbar-track  { background: #e0f2fe; }
+html.light-mode ::-webkit-scrollbar-thumb  { background: #0891b2; }
+
+/* Backgrounds */
+html.light-mode .bg-slate-950      { background-color: #f0f9ff; }
+html.light-mode .bg-slate-900      { background-color: #ffffff; }
+html.light-mode .bg-slate-900\/50  { background-color: rgba(241, 245, 249, 0.85); }
+html.light-mode .bg-slate-800      { background-color: #e2e8f0; }
+html.light-mode .bg-slate-800\/50  { background-color: rgba(226, 232, 240, 0.6); }
+html.light-mode .bg-slate-950\/80  { background-color: rgba(240, 249, 255, 0.9); }
+
+/* Text */
+html.light-mode .text-slate-100 { color: #0f172a; }
+html.light-mode .text-slate-200 { color: #1e293b; }
+html.light-mode .text-slate-300 { color: #334155; }
+html.light-mode .text-slate-400 { color: #475569; }
+html.light-mode .text-slate-500 { color: #64748b; }
+
+/* Accent */
+html.light-mode .text-cyan-400        { color: #0891b2; }
+html.light-mode .text-cyan-300        { color: #06b6d4; }
+html.light-mode .text-indigo-400      { color: #4338ca; }
+html.light-mode .bg-cyan-400\/10      { background-color: rgba(8,145,178,0.1); }
+html.light-mode .bg-cyan-500\/10      { background-color: rgba(6,182,212,0.08); }
+html.light-mode .bg-indigo-500\/10    { background-color: rgba(99,102,241,0.08); }
+html.light-mode .border-cyan-400\/20  { border-color: rgba(8,145,178,0.3); }
+html.light-mode .border-cyan-500\/40  { border-color: rgba(8,145,178,0.35); }
+html.light-mode .border-indigo-500\/40 { border-color: rgba(99,102,241,0.35); }
+
+/* Borders */
+html.light-mode .border-slate-800 { border-color: #e2e8f0; }
+html.light-mode .border-slate-700 { border-color: #cbd5e1; }
+html.light-mode .border-slate-600 { border-color: #94a3b8; }
+
+/* Navbar */
+html.light-mode nav        { border-bottom-color: #e2e8f0; }
+html.light-mode .backdrop-blur-md { backdrop-filter: blur(12px); }
+
+/* Inputs & textarea */
+html.light-mode input,
+html.light-mode textarea {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+html.light-mode input::placeholder,
+html.light-mode textarea::placeholder { color: #94a3b8; }
+
+/* Hero section gradient overlay */
+html.light-mode #home > div:first-child {
+  background-image: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 60%, rgba(238,242,255,0.4) 100%);
+}
+
+/* About — strength cards */
+html.light-mode .bg-slate-800\/40  { background-color: rgba(226, 232, 240, 0.45); }
+html.light-mode .bg-slate-800\/60  { background-color: rgba(226, 232, 240, 0.65); }
+html.light-mode .bg-slate-700\/50  { background-color: rgba(203, 213, 225, 0.5); }
+html.light-mode .border-slate-700\/50 { border-color: rgba(203, 213, 225, 0.8); }
+html.light-mode .border-slate-600\/50 { border-color: rgba(148, 163, 184, 0.6); }
+
+/* Particle canvas */
+html.light-mode .particle-canvas {
+  mix-blend-mode: multiply;
+  opacity: 0.22;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #020817;
+  color: #f1f5f9;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #020817;
+}
+::-webkit-scrollbar-thumb {
+  background: #06b6d4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee;
+}
